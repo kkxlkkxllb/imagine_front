@@ -1,7 +1,15 @@
-Spine = require('spine')
-
 class Dashboard extends Spine.Controller
-  constructor: ->
-    super
-    
+	className: "common dashboard"
+	constructor: ->
+		super
+		# Dashboard.bind "refresh",@fetchAll
+		@routes
+			"dashboard": =>
+				$("article").append @render()
+	template: ->
+		require('views/dashboard')
+
+	render: =>
+		@html @template()
+
 module.exports = Dashboard
