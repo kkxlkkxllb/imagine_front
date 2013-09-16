@@ -1,7 +1,7 @@
 require('lib/setup')
-Dashboard = require("controllers/dashboard")
+Layout = require("controllers/layout")
 $ = require("jqueryify")
 $ ->
-	dashboard = new Dashboard()
+	layout = new Layout()
 	# Spine.Route.setup(history: true)
-	dashboard.navigate("dashboard")
+	layout.navigate("")
