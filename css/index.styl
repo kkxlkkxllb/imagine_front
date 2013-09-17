@@ -1,11 +1,23 @@
 @import './mixin'
+@import 'nib'
 
 body
-	color: #222
+	margin: 0
+	padding: 0
+section
+	display: none
+section.loaded
+	display: block
 
-h2
+.banner
 	text-align: center
-	font-size: 22px
+	font-size: 60px
+	position: absolute
+	width: 100%
+	top: 50%
+	margin-top: -36px
+	background: #333
+	color: white
 
 p
 	text-align: center

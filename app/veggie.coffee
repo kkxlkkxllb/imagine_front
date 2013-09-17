@@ -1,7 +1,7 @@
 require('lib/setup')
-Layout = require("controllers/layout")
+Cards = require("controllers/cards")
 $ = require("jqueryify")
 $ ->
-	layout = new Layout()
+	cards = new Cards()
 	# Spine.Route.setup(history: true)
-	layout.navigate("")
+	cards.navigate("")

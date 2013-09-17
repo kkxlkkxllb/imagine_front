@@ -7,3 +7,4 @@ require('spine/lib/local')
 require('spine/lib/manager')
 require('spine/lib/route')
 
+require("lib/kontext")
