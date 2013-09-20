@@ -1,0 +1,5 @@
+#uploader
+	form(action="/" data-remote="true" data-type="json" accept-charset="UTF-8" enctype="multipart/form-data" method="post")
+		input(type="hidden" name="_id")
+		.hiddenfile
+			input#img_uploader(accept="image/png,image/gif,image/jpeg" name="image" type="file")

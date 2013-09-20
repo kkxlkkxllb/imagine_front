@@ -16,6 +16,7 @@
         "json2ify",
         "jqueryify",
         "spine",
+        "spine/lib/ajax",
         "spine/lib/local",
         "spine/lib/route",
         "spine/lib/manager"
