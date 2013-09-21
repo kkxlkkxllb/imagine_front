@@ -8,27 +8,6 @@ class window.Utils
 	@loaded: ($item) ->
 		$item.stop(true).css "opacity",1
 		$item.removeClass 'disable_event'
-	# single uploader
-	@uploader: ($ele,callback) ->
-		$uploader = $("footer #uploader")
-		$file = $("input[type='file']",$uploader)
-		$form = $file.closest('form')
-		$img = $("img",$ele)
-		$form.off "ajax:success"
-		$form.on "ajax:success",(d,data) ->
-			if data.status is 0
-				Utils.flash(data.msg,'success')
-				if callback
-					callback(data.data)
-				else
-					$img.attr("src",data.data)
-			else
-				Utils.flash(data.msg,'error')
-		$file.off 'change'
-		$file.on 'change', ->
-			$form.submit()
-		$file.trigger "click"
-		$form
 
 	@tag_input: ($form) ->
 		$("input.tags",$form).each (i,e) ->

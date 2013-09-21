@@ -4,11 +4,14 @@ class CardItem extends Spine.Controller
 		"click .card_facade": "make"
 	constructor: ->
 		super
-	render: ->
+		@listenTo @item,'change', @render
+	render: =>
+		console.log @item
 		@html require("views/items/card")(@item)
 	make: (e) ->
-		Utils.uploader $(e.currentTarget),(img) =>
-			@item.load u_word_image: img
-			@render()
-		this
+		$uploader = $("footer #uploader")
+		$file = $("input[type='file']",$uploader)
+		$form = $file.closest('form')
+		$("input[name='_id']",$form).val @item._id
+		$file.trigger "click"
 module.exports = CardItem

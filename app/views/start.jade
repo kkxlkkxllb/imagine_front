@@ -1,1 +1,7 @@
 .banner.dancing 17up
+	if avatar
+		.avatar
+			img(src=avatar)
+	else
+		a.login(title="使用QQ帐号登录" href=login)
+			i.icon-qq_connect

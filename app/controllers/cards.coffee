@@ -1,4 +1,3 @@
-Start = require("controllers/start")
 CardItem = require("controllers/card_item")
 Card = require("models/card")
 class Cards extends Spine.Controller
@@ -8,8 +7,6 @@ class Cards extends Spine.Controller
 		Card.bind 'refresh change', @render
 		Card.fetch()
 	render: =>
-		# start = new Start()
-		# @append start.render()
 		@addAll()
 	addOne: (item) =>
 		card = new CardItem(item: item)
