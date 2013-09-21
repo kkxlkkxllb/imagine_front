@@ -5,6 +5,7 @@ class Member extends Spine.Model
 	@login: "http://17up.org/members/auth/qq_connect"
 	@fromJSON: (json) ->
 		item = json.data
+		Spine.Ajax.defaults.headers['auth_token'] = item.auth_token
 		if item.avatar
 			src = Spine.Model.host + item.avatar
 		else

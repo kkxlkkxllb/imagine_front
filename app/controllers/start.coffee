@@ -10,8 +10,7 @@ class Start extends Spine.Controller
 		Member.bind 'refresh change', @render
 		@append @render()
 		# if member's token exist
-		if Spine.Ajax.defaults.headers['auth_token']
-			Member.fetch()
+		Member.fetch()
 	render: =>
 		item = Member.first() || login: Member.login
 		@html require('views/start')(item)

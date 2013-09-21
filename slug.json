@@ -22,13 +22,13 @@
         "spine/lib/manager"
       ],
       "paths"  : ["./app"],
-      "target" : "./public/assets/mobile/application.js",
+      "target" : "./public/mobile_assets/application.js",
       "jsAfter": "jade.rethrow = function rethrow(err, filename, lineno){ throw err; } ",
       "jsAfter": "require('veggie')"
     },
     "css": {
       "paths"  : "./css",
-      "target" : "./public/assets/mobile/application.css"
+      "target" : "./public/mobile_assets/application.css"
     },
     "test": {
       "identifier" : "specs",

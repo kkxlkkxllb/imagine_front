@@ -31,4 +31,11 @@ class Cards extends Spine.Controller
 					k.next()
 					touchConsumed = true
 		, false
+		document.addEventListener 'keyup', ( event ) ->
+			if event.keyCode is 37
+				k.prev()
+			if event.keyCode is 39
+				k.next()
+		, false
+
 module.exports = Cards
