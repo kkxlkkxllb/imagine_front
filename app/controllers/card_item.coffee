@@ -6,7 +6,6 @@ class CardItem extends Spine.Controller
 		super
 		@listenTo @item,'change', @render
 	render: =>
-		console.log @item
 		@html require("views/items/card")(@item)
 	make: (e) ->
 		$uploader = $("footer #uploader")
