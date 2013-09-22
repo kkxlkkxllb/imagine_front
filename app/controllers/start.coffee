@@ -9,7 +9,6 @@ class Start extends Spine.Controller
 		super
 		Member.bind 'refresh change', @render
 		@append @render()
-		# if member's token exist
 		Member.fetch()
 	render: =>
 		item = Member.first() || login: Member.login

@@ -12,8 +12,6 @@ require("lib/jquery.ui.widget")
 require("lib/jquery.iframe-transport")
 require("lib/jquery.fileupload")
 # client side resize image
-require("lib/binaryajax")
-require("lib/exif")
 require("lib/canvasResize")
 # slider
 require("lib/kontext")
