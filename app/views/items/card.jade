@@ -1,6 +1,6 @@
 .card_facade
-	if !u_word_image
-		.title #{title}
-	else
-		img(src = u_word_image)
+	.title
+		img.word(src = word_image)
+	if u_word_image
+		img.u_word(src = u_word_image)
 .card_obverse

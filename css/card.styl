@@ -1,20 +1,29 @@
 @import './mixin'
 
 .card_item
-	background #efefef
+	background #8b4def
 	position relative
 	text-align center
 	.card_facade
 		unselectable()
 		position absolute
-		left: 50%
-		top: 50%
+		left 50%
+		top 50%
 		margin-top -214px
 		margin-left -160px
 		width 320px
-		height 100%
-		.title
-			font-size 36px
-			line-height 428px
-		img
+		height 428px
+		img.u_word
 			width 320px
+		.title
+			width 100%
+			position absolute
+			top 50%
+			margin-top -40px
+			height 80px
+			text-align center
+			line-height 80px
+			img.word
+				vertical-align middle
+				height 30px
+

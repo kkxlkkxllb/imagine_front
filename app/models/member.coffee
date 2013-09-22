@@ -3,7 +3,7 @@ class Member extends Spine.Model
 	@extend Spine.Model.Ajax
 	@scope: "api"
 	@login: "http://17up.org/members/auth/qq_connect"
-	@url: "http://17up.org/api/members?auth_token=Ppc6Sipt7K6ddKq1o7vw"
+	@url: "http://192.168.1.100:3000/api/members?auth_token=RupemVPsPZ4tLDYpPAit"
 	@fromJSON: (json) ->
 		item = json.data
 		@auth_token = item.auth_token

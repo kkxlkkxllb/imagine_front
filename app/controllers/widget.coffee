@@ -9,14 +9,6 @@ class Widget extends Spine.Controller
 		# $("#img_uploader").fileupload
 		# 	dataType: 'json'
 		# 	multipart: true
-		# 	done: (e,data) ->
-		# 		resp = data.result
-		# 		if resp.status is 0
-		# 			url = Spine.Model.host + resp.data.url
-		# 			card = Card.findByAttribute("_id",resp.data._id)
-		# 			card.u_word_image = url
-		# 			Spine.Ajax.disable ->
-	# 						card.save()
 	render: =>
 		item =
 			action: Spine.Model.host + "/api/cards/create"
@@ -27,7 +19,7 @@ class Widget extends Spine.Controller
 		file = e.target.files[0]
 		canvasResize file,
 			width: 640
-			height: 800
+			height: 0
 			crop: false
 			quality: 90
 			callback: (data, width, height) ->
