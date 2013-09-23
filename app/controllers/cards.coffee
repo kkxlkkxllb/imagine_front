@@ -4,17 +4,19 @@ class Cards extends Spine.Controller
 	className: "kontext"
 	constructor: ->
 		super
-		Card.bind 'refresh change', @render
+		Card.bind 'refresh', @render
 		Card.fetch()
 	render: =>
 		@addAll()
+		@setupKontext(".kontext")
 	addOne: (item) =>
 		card = new CardItem(item: item)
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
-		k = kontext document.querySelector(".kontext")
-		$(".layer:first-child").addClass 'show'
+	setupKontext: (query) ->
+		k = kontext document.querySelector(query)
+		lzld $(".layer:first-child").addClass('show').find("img")[0]
 		touchConsumed = false
 		lastX = 0
 		document.addEventListener 'touchstart', ( event ) ->
@@ -37,5 +39,7 @@ class Cards extends Spine.Controller
 			if event.keyCode is 39
 				k.next()
 		, false
+		k.changed.add ( layer, index ) ->
+			lzld $(layer).find("img")[0]
 
 module.exports = Cards

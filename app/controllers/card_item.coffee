@@ -5,11 +5,20 @@ class CardItem extends Spine.Controller
 		"click .card_facade": "make"
 	constructor: ->
 		super
-		@listenTo @item,'change', @render
+		@item.bind 'loading', @loading
+		@item.bind 'loaded', @loaded
 	render: =>
-		console.log @item
 		@html require("views/items/card")(@item)
 	make: (e) ->
 		Card.current_id = @item._id
 		$("#img_uploader").trigger "click"
+	loading: =>
+		$("img",@$el).animo('blur')
+		@$el.addClass 'disable_event'
+	loaded: =>
+		new_src = @item.u_word_image
+		$("img",@$el).attr "src",new_src
+		$("img",@$el).animo('focus').animo
+			animation: 'tada'
+		@$el.removeClass 'disable_event'
 module.exports = CardItem

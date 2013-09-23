@@ -12,6 +12,8 @@ require("lib/canvasResize")
 # slider
 require("lib/kontext")
 
+require("lib/animo")
+require("lib/lazyload.min")
 require("lib/utils")
 
 

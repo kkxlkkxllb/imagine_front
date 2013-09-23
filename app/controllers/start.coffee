@@ -7,15 +7,16 @@ class Start extends Spine.Controller
 		"click .avatar": "start"
 	constructor: ->
 		super
-		Member.bind 'refresh change', @render
-		@append @render()
+		Member.bind 'refresh', @render
 		Member.fetch()
 	render: =>
 		item = Member.first() || login: Member.login
-		@html require('views/start')(item)
+		@append @html require('views/start')(item)
+		$(".dancing").animo
+			animation: 'tada'
 		this
 	start: (e) ->
-		$(@el).fadeOut()
+		@$el.fadeOut()
 		new Widget(el: $("footer"))
 		new Cards(el: $("article"))
 module.exports = Start

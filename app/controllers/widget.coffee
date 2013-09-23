@@ -10,6 +10,8 @@ class Widget extends Spine.Controller
 		@html require("views/widget/uploader")()
 	resize: (e) ->
 		_id = Card.current_id
+		card = Card.findByAttribute("_id",_id)
+		card.trigger "loading"
 		file = e.target.files[0]
 		canvasResize file,
 			width: 640
@@ -17,10 +19,10 @@ class Widget extends Spine.Controller
 			crop: false
 			quality: 90
 			callback: (data, width, height, blob) ->
-				card = Card.findByAttribute("_id",_id)
 				card.u_word_image = data
 				Spine.Ajax.disable ->
 					card.save()
+				card.trigger "loaded"
 				form = new FormData()
 				form.append("image", blob)
 				form.append("_id",_id)
