@@ -6,25 +6,26 @@ class Widget extends Spine.Controller
 	constructor: ->
 		super
 		@append @render()
-		# $("#img_uploader").fileupload
-		# 	dataType: 'json'
-		# 	multipart: true
 	render: =>
-		item =
-			action: Spine.Model.host + "/api/cards/create"
-			auth_token: Member.auth_token
-		@html require("views/widget/uploader")(item)
+		@html require("views/widget/uploader")()
 	resize: (e) ->
-		_id = $(e.currentTarget).closest("form").find("input[name='_id']").val()
+		_id = Card.current_id
 		file = e.target.files[0]
 		canvasResize file,
 			width: 640
 			height: 0
 			crop: false
 			quality: 90
-			callback: (data, width, height) ->
+			callback: (data, width, height, blob) ->
 				card = Card.findByAttribute("_id",_id)
 				card.u_word_image = data
 				Spine.Ajax.disable ->
 					card.save()
+				form = new FormData()
+				form.append("image", blob)
+				form.append("_id",_id)
+				form.append("auth_token",Member.auth_token)
+				oReq = new XMLHttpRequest()
+				oReq.open("POST",Spine.Model.host + "/api/cards/create")
+				oReq.send(form)
 module.exports = Widget

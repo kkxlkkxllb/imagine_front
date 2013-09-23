@@ -1245,9 +1245,10 @@ var EXIF = (function() {
                     } else {
                         var data = newcanvas.toDataURL("image/jpeg", ($this.options.quality * .01));
                     }
-
+                    // get blob
+                    var blob = methods.dataURLtoBlob(data);
                     // CALLBACK
-                    $this.options.callback(data, newcanvas.width, newcanvas.height);
+                    $this.options.callback(data, newcanvas.width, newcanvas.height,blob);
 
                     // });
                 };

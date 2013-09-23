@@ -1,6 +1,2 @@
-#uploader
-	form(accept-charset="UTF-8" enctype="multipart/form-data" method="post")
-		input(type="hidden" name="_id")
-		input(type="hidden" name="auth_token" value=auth_token)
-		.hiddenfile
-			input#img_uploader(data-url=action accept="image/png,image/gif,image/jpeg" name="image" type="file")
+.hiddenfile
+	input#img_uploader(accept="image/png,image/gif,image/jpeg" name="image" type="file")
