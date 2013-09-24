@@ -13,7 +13,7 @@ require("lib/canvasResize")
 require("lib/kontext")
 
 require("lib/animo")
-require("lib/lazyload.min")
+require("lib/jquery.unveil")
 require("lib/utils")
 
 

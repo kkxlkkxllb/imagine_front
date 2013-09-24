@@ -17,7 +17,10 @@ class Cards extends Spine.Controller
 		Card.each(@addOne)
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
-		lzld $(".layer:first-child").addClass('show').find("img")[0]
+		$(".layer:first-child").addClass('show')
+		$("img.u_word").unveil 100, ->
+			$(@).load ->
+				@style.opacity = 1
 		touchConsumed = false
 		lastX = 0
 		document.addEventListener 'touchstart', ( event ) ->
@@ -41,6 +44,6 @@ class Cards extends Spine.Controller
 				k.next()
 		, false
 		k.changed.add ( layer, index ) ->
-			lzld $(layer).find("img")[0]
+			$(layer).find("img").trigger("unveil")
 
 module.exports = Cards
