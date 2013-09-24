@@ -17,7 +17,7 @@ class Widget extends Spine.Controller
 			width: 640
 			height: 0
 			crop: false
-			quality: 90
+			quality: 80
 			callback: (data, width, height, blob) ->
 				card.u_word_image = data
 				Spine.Ajax.disable ->

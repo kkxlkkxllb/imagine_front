@@ -101,3 +101,24 @@ clearfix()
 		display: table
 	&:after
 		clear: both
+
+text-shadow-black(font_color = white)
+	color font_color
+	text-shadow -1px -1px 0px rgba(0, 0, 0, .8)
+
+vertical-middle(height_val)
+	position absolute
+	top 50%
+	height height_val
+	margin-top (- (height_val / 2))
+
+
+horizontal-center(width_val)
+	position absolute
+	left 50%
+	width width_val
+	margin-left (- (width_val / 2))
+
+text_center()
+	width 100%
+	text-align center

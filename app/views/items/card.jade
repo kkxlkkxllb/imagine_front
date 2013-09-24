@@ -1,5 +1,10 @@
+- var trans_image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 .card_facade
 	.title.lobster #{title}
 	if u_word_image
-		img.u_word(src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-frz-src = u_word_image)
+		img.u_word(src = trans_image data-frz-src = u_word_image)
+	else
+		img.u_word(src = trans_image)
+		.empty_tip
+			span.icon-camera(title="上传照片")
 .card_obverse
