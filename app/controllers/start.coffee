@@ -8,7 +8,11 @@ class Start extends Spine.Controller
 	constructor: ->
 		super
 		Member.bind 'refresh', @render
-		Member.fetch()
+		Member.fetch
+			data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
+			error: (e) =>
+				if e.status is 401
+					@render()
 	render: =>
 		item = Member.first() || login: Member.login
 		@append @html require('views/start')(item)

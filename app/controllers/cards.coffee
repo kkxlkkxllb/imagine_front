@@ -5,7 +5,8 @@ class Cards extends Spine.Controller
 	constructor: ->
 		super
 		Card.bind 'refresh', @render
-		Card.fetch()
+		Card.fetch
+			data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 	render: =>
 		@addAll()
 		@setupKontext(".kontext")
