@@ -8,16 +8,22 @@ class Cards extends Spine.Controller
 		Card.fetch
 			data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 	render: =>
+		@addHead()
 		@addAll()
+		@addFoot()
 		@setupKontext(".kontext")
 	addOne: (item) =>
 		card = new CardItem(item: item)
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
+	addHead: ->
+		@append require("views/head")()
+	addFoot: ->
+		@append require("views/foot")()
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
-		$(".layer:first-child").addClass('show')
+		$(".layer:first").addClass('show')
 		$("img.u_word").unveil 100, ->
 			$(@).load ->
 				@style.opacity = 1
