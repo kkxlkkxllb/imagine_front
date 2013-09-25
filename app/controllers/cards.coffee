@@ -8,7 +8,6 @@ class Cards extends Spine.Controller
 		Card.fetch
 			data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 	render: =>
-		@addHead()
 		@addAll()
 		@addFoot()
 		@setupKontext(".kontext")
@@ -17,10 +16,10 @@ class Cards extends Spine.Controller
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
-	addHead: ->
-		@append require("views/head")()
 	addFoot: ->
 		@append require("views/foot")()
+	deactive: ->
+		this
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
 		$(".layer:first").addClass('show')
