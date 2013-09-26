@@ -6,32 +6,50 @@ max_width = 320px
 max_height = 428px
 
 .card_item
-	position relative
-	background bg_color
-	.card_facade
-		unselectable()
-		vertical-middle max_height
-		horizontal-center max_width
-		img.u_word
-			width max_width
-			vertical-middle-auto()
-			z-index 5
-			opacity 0
-			transition opacity .3s ease-in
-		.empty_tip
-			font-size 36px
-			vertical-middle 80px
-			text_center()
-			margin-top 40px
-			color tip_color
-			z-index 1
-		.title
-			line-height 80px
-			font-size 36px
-			text-shadow-black()
-			vertical-middle 80px
-			text_center()
-			z-index 9
-	.card_obverse
-		display none
+	.card_wraper
+		position relative
+		background bg_color
+		up3d_roll()
+		width 100%
+		height 100%
+		> div
+			transition(all,0.5s,ease-in)
+			-webkit-transform-origin 50% 50% 0px
+			vertical-middle max_height
+			horizontal-center max_width
+			unselectable()
+		.card_facade
+			transform rotateY(0deg)
+			img.u_word
+				width max_width
+				vertical-middle-auto()
+				z-index 5
+				opacity 0
+				transition opacity .3s ease-in
+			.empty_tip
+				font-size 36px
+				vertical-middle 80px
+				text_center()
+				margin-top 40px
+				color tip_color
+				z-index 1
+			.title
+				line-height 80px
+				font-size 36px
+				text-shadow-black()
+				vertical-middle 80px
+				text_center()
+				z-index 9
+		.card_obverse
+			transform rotateY(180deg)
+			background tip_color
 
+			.content
+				text-shadow-inset()
+				font-size 20px
+				padding 20px
+	.card_wraper.obverse
+		.card_facade
+			transform rotateY(180deg)
+		.card_obverse
+			transform rotateY(0deg)

@@ -2,6 +2,8 @@ CardItem = require("controllers/card_item")
 Card = require("models/card")
 class Cards extends Spine.Controller
 	className: "kontext"
+	events:
+		"click .foot_nav": "turn_face"
 	constructor: ->
 		super
 		Card.bind 'refresh', @render
@@ -18,7 +20,8 @@ class Cards extends Spine.Controller
 		Card.each(@addOne)
 	addFoot: ->
 		@append require("views/foot")()
-	deactive: ->
+	turn_face: (e) ->
+		$(".layer.show .card_wraper").toggleClass 'obverse'
 		this
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)

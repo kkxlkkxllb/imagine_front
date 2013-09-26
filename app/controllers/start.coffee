@@ -18,10 +18,14 @@ class Start extends Spine.Controller
 		@append @html require('views/start')(item)
 		$(".dancing").animo
 			animation: 'tada'
-		new Widget(el: $("footer"))
-		new Cards(el: $("article"))
 		this
 	start: (e) ->
-		@$el.fadeOut()
+		if $("article").html() is ''
+			new Cards(el: $("article"))
+			new Widget(el: $("footer"))
+		if @isActive()
+			@deactivate()
+		else
+			@activate()
 
 module.exports = Start

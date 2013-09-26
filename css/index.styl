@@ -4,33 +4,57 @@
 @import './kontext'
 @import './card'
 
+bar-height = 60px
+nav_bg = #2ecc71
+
+.start.active
+	max-height bar-height
+	height bar-height
+	background nav_bg
+	fixed()
+	.banner
+		top 0
+		margin 0
+		position relative
+		height 100%
+		.dancing
+			font-size 30px
+			line-height bar-height
+		.avatar
+			vertical-middle-auto()
+			left 5px
+			height 40px
+			img
+				width 40px
+		.info
+			display none
 .start
-	height: 100%
+	height 100%
 	unselectable()
 	.banner
-		text-align center
+		text_center()
 		position absolute
-		width 100%
-		top 40%
+		top 30%
 		margin-top -36px
-		font-size 60px
 		.dancing
-			color white
-			text-shadow 0 -1px 0 rgba(0,0,0,0.25)
+			font-size 60px
+			text-shadow-inset()
 		.login
 			display block
 			color white
+			font-size 60px
 			text-decoration: none
 		.avatar
 			margin-top 15px
 			img
 				border-radius 7px
 				width 60px
-.fixed
-	position fixed
-	z-index 99
-	width 100%
+		.info
+			text-shadow-inset()
+
 .foot_nav
 	bottom 0px
 	height 60px
-	background rgba(255,255,255,0.5)
+	background nav_bg
+	fixed()
+	unselectable()
