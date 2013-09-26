@@ -2,6 +2,7 @@
 
 bg_color = #27ae60
 tip_color = #2ecc71
+obverse_color = #3498db
 max_width = 320px
 max_height = 428px
 
@@ -42,14 +43,13 @@ max_height = 428px
 				z-index 9
 		.card_obverse
 			transform rotateY(180deg)
-			background tip_color
-
+			background obverse_color
 			.content
 				text-shadow-inset()
 				font-size 20px
 				padding 20px
 	.card_wraper.obverse
 		.card_facade
-			transform rotateY(180deg)
+			transform rotateY(-180deg)
 		.card_obverse
 			transform rotateY(0deg)
