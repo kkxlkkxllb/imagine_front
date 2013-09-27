@@ -9,6 +9,8 @@ require('spine/lib/manager')
 require('spine/lib/route')
 # client side resize image
 require("lib/canvasResize")
+#hammer
+require("lib/hammer")
 # slider
 require("lib/kontext")
 
