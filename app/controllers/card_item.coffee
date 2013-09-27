@@ -2,7 +2,8 @@ Card = require("models/card")
 class CardItem extends Spine.Controller
 	className: "card_item layer"
 	events:
-		"click .card_facade": "make"
+		"hold .card_facade": "make"
+		"tap": "turn_face"
 	constructor: ->
 		super
 		@item.bind 'loading', @loading
@@ -10,6 +11,7 @@ class CardItem extends Spine.Controller
 	render: =>
 		@html require("views/items/card")(@item)
 	make: (e) ->
+		e.preventDefault()
 		Card.current_id = @item._id
 		$("#img_uploader").trigger "click"
 	loading: =>
@@ -21,4 +23,8 @@ class CardItem extends Spine.Controller
 		$("img",@$el).animo('focus').animo
 			animation: 'tada'
 		@$el.removeClass 'disable_event'
+	turn_face: (e) ->
+		e.preventDefault()
+		$(".card_wraper",@$el).toggleClass 'obverse'
+		this
 module.exports = CardItem
