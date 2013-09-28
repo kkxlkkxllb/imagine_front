@@ -8,6 +8,10 @@ class Card extends Spine.Model
 				src = Spine.Model.host + item.u_word_image
 			else
 				src = null
-			$.extend {},item,u_word_image: src
+			options =
+				audio: "http://tts.yeshj.com/uk/s/" + encodeURIComponent(item.title)
+				u_word_image: src
+
+			$.extend {},item,options
 		super data
 module.exports = Card

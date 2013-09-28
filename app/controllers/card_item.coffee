@@ -8,6 +8,12 @@ class CardItem extends Spine.Controller
 		super
 		@item.bind 'loading', @loading
 		@item.bind 'loaded', @loaded
+		id = @item.cid
+		url = @item.audio
+		@sound = soundManager.createSound
+			id: id
+			url: url
+
 	render: =>
 		@html require("views/items/card")(@item)
 	make: (e) ->
@@ -26,5 +32,6 @@ class CardItem extends Spine.Controller
 	turn_face: (e) ->
 		e.preventDefault()
 		$(".card_wraper",@$el).toggleClass 'obverse'
+		@sound.play()
 		this
 module.exports = CardItem

@@ -18,9 +18,9 @@ max_height = 428px
 			-webkit-transform-origin 50% 50% 0px
 			vertical-middle max_height
 			horizontal-center max_width
-			unselectable()
 		.card_facade
 			transform rotateY(0deg)
+			unselectable()
 			img.u_word
 				width max_width
 				vertical-middle-auto()
@@ -44,10 +44,12 @@ max_height = 428px
 		.card_obverse
 			transform rotateY(180deg)
 			background obverse_color
+			text-shadow-inset()
+			> div
+				padding 20px 20px 0 20px
 			.content
-				text-shadow-inset()
 				font-size 20px
-				padding 20px
+
 	.card_wraper.obverse
 		.card_facade
 			transform rotateY(-180deg)

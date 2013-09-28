@@ -13,9 +13,13 @@ require("lib/canvasResize")
 require("lib/hammer")
 # slider
 require("lib/kontext")
-
+# animate
 require("lib/animo")
+# img lazyload
 require("lib/jquery.unveil")
+# sound manage
+require("lib/soundmanager2")
+# custom utils
 require("lib/utils")
 
 
