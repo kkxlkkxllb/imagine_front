@@ -19,7 +19,5 @@ require("lib/animo")
 require("lib/jquery.unveil")
 # sound manage
 require("lib/soundmanager2")
-# custom utils
-require("lib/utils")
 
 

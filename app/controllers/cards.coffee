@@ -1,5 +1,6 @@
 CardItem = require("controllers/card_item")
 Card = require("models/card")
+Widget = require("controllers/widget")
 class Cards extends Spine.Controller
 	className: "kontext"
 	constructor: ->
@@ -16,6 +17,7 @@ class Cards extends Spine.Controller
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
+		# Card.count()
 	addFoot: ->
 		@append require("views/foot")()
 	setupKontext: (query) ->
