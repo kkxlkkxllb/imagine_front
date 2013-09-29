@@ -26,7 +26,7 @@ class Widget extends Spine.Controller
 				form = new FormData()
 				form.append("image", blob)
 				form.append("_id",_id)
-				form.append("auth_token",Member.auth_token)
+				form.append("auth_token",Member.current.auth_token)
 				oReq = new XMLHttpRequest()
 				oReq.open("POST",Spine.Model.host + "/api/cards/create")
 				oReq.send(form)

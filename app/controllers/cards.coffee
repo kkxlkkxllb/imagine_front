@@ -6,8 +6,7 @@ class Cards extends Spine.Controller
 	constructor: ->
 		super
 		Card.bind 'refresh', @render
-		Card.fetch
-			data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
+		Card.fetch()
 	render: =>
 		@addAll()
 		@addFoot()
@@ -17,7 +16,6 @@ class Cards extends Spine.Controller
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
-		# Card.count()
 	addFoot: ->
 		@append require("views/foot")()
 	setupKontext: (query) ->
