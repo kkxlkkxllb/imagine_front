@@ -4,8 +4,10 @@ class Member extends Spine.Model
 	@extend Spine.Model.Local
 	@login: "http://17up.org/members/auth/qq_connect"
 	@fetch: ->
-		super()
-		unless @current = Member.first()
+		if localStorage[@className]
+			super()
+			@current = Member.first()
+		else
 			AjaxMember.fetch
 				data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 				error: (e) =>

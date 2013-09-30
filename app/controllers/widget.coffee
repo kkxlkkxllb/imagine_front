@@ -20,14 +20,7 @@ class Widget extends Spine.Controller
 			quality: 80
 			callback: (data, width, height, blob) ->
 				card.u_word_image = data
-				Spine.Ajax.disable ->
-					card.save()
+				card.save()
 				card.trigger "loaded"
-				form = new FormData()
-				form.append("image", blob)
-				form.append("_id",_id)
-				form.append("auth_token",Member.current.auth_token)
-				oReq = new XMLHttpRequest()
-				oReq.open("POST",Spine.Model.host + "/api/cards/create")
-				oReq.send(form)
+				card.sync(blob)
 module.exports = Widget

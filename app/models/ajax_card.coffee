@@ -8,7 +8,6 @@ class AjaxCard extends Spine.Model
 				src = Spine.Model.host + item.u_word_image
 			else
 				src = null
-
 			options =
 				audio: "http://tts.yeshj.com/uk/s/" + encodeURIComponent(item.title)
 				u_word_image: src

@@ -20,11 +20,12 @@ class Cards extends Spine.Controller
 		@append require("views/foot")()
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
-		$(".layer:first").addClass('show')
+		$first = $(".layer:first")
+		$first.addClass('show')
 		$("img.u_word").unveil 100, ->
 			$(@).load ->
 				@style.opacity = 1
-
+		$first.find("img").trigger("unveil")
 		touchConsumed = false
 		lastX = 0
 		document.addEventListener 'touchstart', ( event ) ->

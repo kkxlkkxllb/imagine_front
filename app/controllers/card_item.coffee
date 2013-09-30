@@ -26,11 +26,10 @@ class CardItem extends Spine.Controller
 		@$el.removeClass 'disable_event'
 	turn_face: (e) ->
 		e.preventDefault()
-		url = @item.audio
-		id = @item.cid
+		self = @
 		sound = soundManager.createSound
-			id: id
-			url: url
+			id: self.item.cid
+			url: self.item.audio
 		$(".card_wraper",@$el).toggleClass 'obverse'
 		sound.play()
 		this

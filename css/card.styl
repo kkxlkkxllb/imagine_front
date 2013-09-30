@@ -2,17 +2,18 @@
 
 bg_color = #27ae60
 tip_color = #2ecc71
-obverse_color = #3498db
+obverse_bg = #3498db
+obverse_text = #2980b9
 max_width = 320px
 max_height = 428px
 
 .card_item
 	.card_wraper
 		position relative
-		background bg_color
 		up3d_roll()
 		width 100%
 		height 100%
+		background bg_color
 		> div
 			transition(all,0.5s,ease-in)
 			-webkit-transform-origin 50% 50% 0px
@@ -43,15 +44,23 @@ max_height = 428px
 				z-index 9
 		.card_obverse
 			transform rotateY(180deg)
-			background obverse_color
+			background obverse_bg
 			text-shadow-inset()
-			> div
-				padding 20px 20px 0 20px
+			opacity 0
 			.content
-				font-size 20px
-
+				padding 20px 20px 0 20px
+				font-size 16px
+			ul.sentence
+				margin 0
+				padding 10px 20px 0 20px
+				list-style none
+				li
+					margin 10px 0
+					padding 0 10px
+					border-left 4px solid obverse_text
 	.card_wraper.obverse
 		.card_facade
 			transform rotateY(-180deg)
 		.card_obverse
 			transform rotateY(0deg)
+			opacity 1
