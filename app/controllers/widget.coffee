@@ -22,5 +22,5 @@ class Widget extends Spine.Controller
 				card.u_word_image = data
 				card.save()
 				card.trigger "loaded"
-				card.sync(blob)
+				card.sync(blob,Member.current.auth_token)
 module.exports = Widget

@@ -1,6 +1,6 @@
 AjaxCard = require("models/ajax_card")
 class Card extends Spine.Model
-	@configure 'Card', 'title', 'content', 'u_word_image', "_id", "audio", "sentence", "synset"
+	@configure 'Card', 'title', 'content', 'u_word_image', "_id", "audio", "sentence", "synset", "sync_over", "blob"
 	@extend Spine.Model.Local
 	@fetch: ->
 		if localStorage[@className]
@@ -10,18 +10,31 @@ class Card extends Spine.Model
 				data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 				complete: (e) =>
 					if e.responseJSON.status is 0
-						Card.records = AjaxCard.all()
-						Card.change()
-						@refresh(Card.all(), clear: true)
+						@records = AjaxCard.all()
+						@change()
+						@refresh(@all(), clear: true)
 	@clean: ->
 		@refresh([],clear: true)
-		Card.change()
-	sync: (blob) ->
+		@change()
+	@check_unSync: ->
+		@findAllByAttribute "sync_over",false
+
+	sync: (blob,auth_token) ->
 		form = new FormData()
 		form.append("image", blob)
 		form.append("_id",@_id)
-		form.append("auth_token",Member.current.auth_token)
-		oReq = new XMLHttpRequest()
-		oReq.open("POST",Spine.Model.host + "/api/cards/create")
-		oReq.send(form)
+		form.append("auth_token",auth_token)
+		request_url = Spine.Model.host + "/api/cards/create"
+		$.ajax
+			type: 'POST'
+			url: request_url
+			data: form
+			contentType: false
+			processData: false
+			error: =>
+				@updateAttributes
+					sync_over: false
+					blob: blob
+			success: =>
+				@updateAttribute "sync_over",true
 module.exports = Card

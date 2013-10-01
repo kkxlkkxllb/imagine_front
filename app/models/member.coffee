@@ -6,7 +6,7 @@ class Member extends Spine.Model
 	@fetch: ->
 		if localStorage[@className]
 			super()
-			@current = Member.first()
+			@current = @first()
 		else
 			AjaxMember.fetch
 				data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
@@ -15,7 +15,6 @@ class Member extends Spine.Model
 						@refresh([], clear: true)
 				complete: (e) =>
 					if e.responseJSON.status is 0
-						am = AjaxMember.first()
-						@current = Member.create am.attributes()
+						@current = @create AjaxMember.first().attributes()
 						@refresh(@current, clear: true)
 module.exports = Member

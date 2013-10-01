@@ -1,10 +1,12 @@
 Member = require("models/member")
 Cards = require("controllers/cards")
 Widget = require("controllers/widget")
+Card = require("models/card")
 class Start extends Spine.Controller
 	className: "start"
 	events:
 		"click .avatar": "start"
+		"click .sync": "sync"
 	constructor: ->
 		super
 		Member.bind 'refresh', @render
@@ -23,5 +25,7 @@ class Start extends Spine.Controller
 			@deactivate()
 		else
 			@activate()
+	sync: ->
+		Card.check_unSync()
 
 module.exports = Start
