@@ -1,31 +1,29 @@
 Member = require("models/member")
 Cards = require("controllers/cards")
-Widget = require("controllers/widget")
-Card = require("models/card")
+Footer = require("controllers/footer")
 class Start extends Spine.Controller
 	className: "start"
 	events:
-		"click .avatar": "start"
-		"click .sync": "sync"
+		"click": "start"
 	constructor: ->
 		super
 		Member.bind 'refresh', @render
 		Member.fetch()
 	render: =>
-		item = Member.first() || login: Member.login
+		item = Member.first()
 		@append @html require('views/start')(item)
 		$(".dancing").animo
 			animation: 'tada'
 		this
 	start: (e) ->
-		if $("article").html() is ''
-			new Cards(el: $("article"))
-			new Widget(el: $("footer"))
-		if @isActive()
-			@deactivate()
+		if Member.current
+			if $("article").html() is ''
+				new Cards(el: $("article"))
+				new Footer(el: $("footer"))
+			if @isActive()
+				@deactivate()
+			else
+				@activate()
 		else
-			@activate()
-	sync: ->
-		Card.check_unSync()
-
+			window.location.href = Member.login
 module.exports = Start

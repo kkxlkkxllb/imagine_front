@@ -1,6 +1,5 @@
 CardItem = require("controllers/card_item")
 Card = require("models/card")
-Widget = require("controllers/widget")
 class Cards extends Spine.Controller
 	className: "kontext"
 	constructor: ->
@@ -9,15 +8,12 @@ class Cards extends Spine.Controller
 		Card.fetch()
 	render: =>
 		@addAll()
-		@addFoot()
 		@setupKontext(".kontext")
 	addOne: (item) =>
 		card = new CardItem(item: item)
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
-	addFoot: ->
-		@append require("views/foot")()
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
 		$first = $(".layer:first")

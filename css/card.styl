@@ -1,27 +1,34 @@
 @import './mixin'
 
-bg_color = #27ae60
-tip_color = #2ecc71
-obverse_bg = #3498db
-obverse_text = #2980b9
+c2 = #2980b9
+c1 = #3498db
 max_width = 320px
 max_height = 428px
+ctop = 70px
 
 .card_item
+	height max_height
+	position absolute
+	width 100%
+	left 0
+	top ctop
+	visibility hidden
 	.card_wraper
 		position relative
 		up3d_roll()
 		width 100%
 		height 100%
-		background bg_color
+		background c2
 		> div
 			transition(all,0.5s,ease-in)
 			-webkit-transform-origin 50% 50% 0px
 			vertical-middle max_height
 			horizontal-center max_width
+			overflow hidden
 		.card_facade
 			transform rotateY(0deg)
 			unselectable()
+			opacity 1
 			img.u_word
 				width max_width
 				vertical-middle-auto()
@@ -33,7 +40,7 @@ max_height = 428px
 				vertical-middle 80px
 				text_center()
 				margin-top 40px
-				color tip_color
+				color c1
 				z-index 1
 			.title
 				line-height 80px
@@ -44,7 +51,7 @@ max_height = 428px
 				z-index 9
 		.card_obverse
 			transform rotateY(180deg)
-			background obverse_bg
+			background c1
 			text-shadow-inset()
 			opacity 0
 			.content
@@ -57,10 +64,11 @@ max_height = 428px
 				li
 					margin 10px 0
 					padding 0 10px
-					border-left 4px solid obverse_text
+					border-left 4px solid c2
 	.card_wraper.obverse
 		.card_facade
 			transform rotateY(-180deg)
+			opacity 0
 		.card_obverse
 			transform rotateY(0deg)
 			opacity 1

@@ -4,14 +4,17 @@
 @import './card'
 
 bar-height = 60px
-nav_bg = #2ecc71
+foot-height = 70px
+c1 = #3498db
+c2 = #2980b9
 
 .start.active
 	max-height bar-height
 	height bar-height
-	background nav_bg
+	background c1
 	fixed()
 	padding-top 10px
+	border-bottom 1px dashed c2
 	.banner
 		top 0
 		margin 0
@@ -28,14 +31,11 @@ nav_bg = #2ecc71
 				width 40px
 		.info
 			display none
-		.sync
-			display block
-			vertical-middle 30px
-			right 5px
-			font-size 30px
 .start
 	height 100%
 	unselectable()
+	&:active
+		background c2
 	.banner
 		text_center()
 		position absolute
@@ -46,9 +46,16 @@ nav_bg = #2ecc71
 			text-shadow-inset()
 		.login
 			display block
-			color white
 			font-size 60px
-			text-decoration: none
+			text-shadow-inset()
+			text-decoration none
+			background c2
+			padding 10px 0
+		.topic
+			padding 20px
+		.desc
+			text-shadow-inset()
+			font-size 16px
 		.avatar
 			margin-top 15px
 			img
@@ -56,11 +63,51 @@ nav_bg = #2ecc71
 				width 60px
 		.info
 			text-shadow-inset()
-		.sync
-			display none
-			text-shadow-inset()
+.badge
+	display block
+	position absolute
+	width 20px
+	height 20px
+	top 50%
+	left 50%
+	line-height 20px
+	background c2
+	border-radius 10px
+	font-size 16px
+.modal
+	display none
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+	z-index 999
+	background rgba(41, 128, 185,0.8)
 .foot_nav
 	bottom 0px
-	height 70px
+	height foot-height
 	fixed()
+	background c1
+	border-top 1px dashed c2
 	unselectable()
+	ul
+		margin 0
+		padding 0
+		li
+			list-style-type none
+			display table-cell
+			width 1%
+			text-align center
+			line-height foot-height
+			font-size 30px
+			text-shadow-inset()
+			position relative
+			&:active
+				background c2
+#help
+	text-shadow-inset()
+	.h_title
+		text_center()
+		padding-top 30px
+	p
+		padding 0 10px
