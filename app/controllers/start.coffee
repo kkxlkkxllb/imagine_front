@@ -10,16 +10,16 @@ class Start extends Spine.Controller
 		Member.bind 'refresh', @render
 		Member.fetch()
 	render: =>
-		item = Member.first()
-		@append @html require('views/start')(item)
+		if member = Member.first()
+			new Cards(el: $("article"))
+			new Footer(el: $("footer"))
+			@activate()
+		@append @html require('views/start')(member)
 		$(".dancing").animo
 			animation: 'tada'
 		this
 	start: (e) ->
 		if Member.current
-			if $("article").html() is ''
-				new Cards(el: $("article"))
-				new Footer(el: $("footer"))
 			if @isActive()
 				@deactivate()
 			else

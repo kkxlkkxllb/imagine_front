@@ -10,7 +10,7 @@
 
   "packages": {
     "veggie": {
-      "libs"    : ["lib/runtime.js"],
+      "libs"    : ["lib/runtime.js","lib/cordova.js"],
       "modules" : [
         "es5-shimify",
         "json2ify",
