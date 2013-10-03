@@ -7,7 +7,7 @@ class Card extends Spine.Model
 			super()
 		else
 			AjaxCard.fetch
-				data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
+				# data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 				complete: (e) =>
 					if e.responseJSON.status is 0
 						@records = AjaxCard.all()

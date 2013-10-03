@@ -9,7 +9,7 @@ class Member extends Spine.Model
 			@current = @first()
 		else
 			AjaxMember.fetch
-				data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
+				# data: "auth_token=Ppc6Sipt7K6ddKq1o7vw"
 				error: (e) =>
 					if e.status is 401
 						@refresh([], clear: true)

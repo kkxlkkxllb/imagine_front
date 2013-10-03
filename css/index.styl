@@ -20,7 +20,7 @@ c2 = #2980b9
 		margin 0
 		position relative
 		height 100%
-		.dancing
+		.title
 			font-size 30px
 			line-height bar-height
 		.avatar
@@ -29,7 +29,7 @@ c2 = #2980b9
 			height 40px
 			img
 				width 40px
-		.info
+		.info,.sub_title
 			display none
 .start
 	height 100%
@@ -41,7 +41,10 @@ c2 = #2980b9
 		position absolute
 		top 30%
 		margin-top -36px
-		.dancing
+		.sub_title
+			font-size 26px
+			text-shadow-inset()
+		.title
 			font-size 60px
 			text-shadow-inset()
 		.login
@@ -49,10 +52,12 @@ c2 = #2980b9
 			font-size 60px
 			text-shadow-inset()
 			text-decoration none
-			background c2
-			padding 10px 0
 		.topic
-			padding 20px
+			margin 20px 0
+			padding 20px 0
+			background c2
+			border-top 2px dashed c1
+			border-bottom 2px dashed c1
 		.desc
 			text-shadow-inset()
 			font-size 16px
