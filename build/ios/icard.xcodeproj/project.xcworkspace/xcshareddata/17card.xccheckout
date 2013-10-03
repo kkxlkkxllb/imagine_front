@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EBF23443-5397-4923-90E6-869F0A17E128</string>
+	<key>IDESourceControlProjectName</key>
+	<string>17card</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>839C5AE2-2EE4-419E-BFF6-B5A0AB763E48</key>
+		<string>https://github.com/kkxlkkxllb/imagine_front.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>build/ios/17card.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>839C5AE2-2EE4-419E-BFF6-B5A0AB763E48</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kkxlkkxllb/imagine_front.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>839C5AE2-2EE4-419E-BFF6-B5A0AB763E48</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>839C5AE2-2EE4-419E-BFF6-B5A0AB763E48</string>
+			<key>IDESourceControlWCCName</key>
+			<string>imagine_front</string>
+		</dict>
+	</array>
+</dict>
+</plist>
